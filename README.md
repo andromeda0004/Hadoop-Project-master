@@ -23,38 +23,6 @@ The project architecture involves the following key steps:
    - **Tez**: An application framework that enables a complex directed-acyclic-graph of tasks for processing data, improving performance over traditional MapReduce.
 3. **Data Import/Export**: Sqoop is used for transferring data between HDFS and relational databases, enabling seamless integration between Hadoop and traditional RDBMS.
 
-### Project Structure
-
-```
-MovieLens 100k Data Analysis Project
-|
-|-- 1. Data Ingestion
-|   |-- HDFS
-|       |-- Upload data to HDFS
-|
-|-- 2. Data Processing
-|   |-- MapReduce
-|       |-- Implement MapReduce to process data
-|
-|   |-- Hive
-|       |-- Create tables and execute queries
-|
-|   |-- Pig
-|       |-- Write Pig scripts for data transformation
-|
-|   |-- Spark
-|       |-- Process data using Spark
-|
-|   |-- Tez
-|       |-- Use Tez to optimize Hive queries
-|           
-|-- 3. Data Import/Export
-|   |-- Sqoop
-|       |-- Import data from MySQL to HDFS
-|       |-- Export data from HDFS to MySQL
-|
-```
-
 This architecture ensures that the dataset is efficiently ingested, processed, and exported, demonstrating the versatility and power of the Hadoop ecosystem in handling large-scale data processing tasks. Each component is utilized to its strengths, providing a comprehensive overview of big data processing techniques.
 
 ### Setting Up and Running the Project Locally
