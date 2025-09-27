@@ -1,0 +1,69 @@
+The `sqoop import` command is a utility within the Apache Sqoop framework that facilitates the transfer of data from relational databases into Hadoop's HDFS. It connects to a specified database using JDBC, extracts the desired data, and stores it in HDFS in a specified format. This command is highly customizable, allowing users to specify the target directory, delimiter for fields, the number of mappers, and various other options to optimize the import process. It is especially useful for large-scale data migrations and integrations between traditional RDBMS and big data environments.
+
+-- 1. IMPORTING GENRES TABLE DATA TO TABLE (HDFS)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table genres \
+-m 1 \
+--username root \
+--password hadoop \
+--target-dir /user/maria_dev/ml-100k/genres
+
+-- 2. IMPORTING GENRES_MOVIES TABLE DATA TO TABLE (HDFS)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table genres_movies \
+-m 1 \
+--username root \
+--password hadoop \
+--target-dir /user/maria_dev/ml-100k/genres_movies
+
+-- 3. IMPORTING MOVIES TABLE DATA TO TABLE (HDFS)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table movies \
+-m 1 \
+--username root \
+--password hadoop \
+--target-dir /user/maria_dev/ml-100k/movies 
+
+-- 4. IMPORTING OCCUPATIONS TABLE DATA TO TABLE (HDFS)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table occupations \
+-m 1 \
+--username root \
+--password hadoop \
+--target-dir /user/maria_dev/ml-100k/occupations 
+
+-- 5. IMPORTING RATINGS TABLE DATA TO TABLE (HDFS)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table ratings \
+-m 1 \
+--username root \
+--password hadoop \
+--target-dir /user/maria_dev/ml-100k/ratings 
+
+-- 6. IMPORTING USERS TABLE DATA TO TABLE (HDFS)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table users \
+-m 1 \
+--username root \
+--password hadoop \
+--target-dir /user/maria_dev/ml-100k/users 
+
+

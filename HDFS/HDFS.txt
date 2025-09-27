@@ -1,0 +1,50 @@
+### HDFS Overview
+HDFS (Hadoop Distributed File System) is the primary storage system used by Hadoop applications. It provides a distributed storage system designed to run on commodity hardware. HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware. It provides high throughput access to application data and is suitable for applications with large data sets.
+
+### Key Features of HDFS
+1. **Scalability**: HDFS can scale to hundreds of nodes in a single cluster.
+2. **Fault Tolerance**: Data is replicated across multiple nodes to ensure reliability and fault tolerance.
+3. **High Throughput**: Optimized for large, streaming reads and writes.
+4. **Support for Large Files**: Designed to handle very large files that are divided into blocks.
+
+### How We Stored Our Data Files
+In this project, we utilized HDFS to store various data files, ensuring data availability and fault tolerance. Here's a brief overview of how we managed our data files with HDFS:
+
+1. **Uploading Data**: We used the `hdfs dfs -put` command to upload local data files to HDFS. For example:
+   ```sh
+   hdfs dfs -put $HOME/Downloads/Hadoop-Project-master/data/ml-100k/u.data /user/$USER/ml-100k/
+   ```
+
+2. **Data Organization**: Data files are organized in directories under the `/user/$USER` directory in HDFS, ensuring that all project data is stored in a structured manner. The MovieLens 100k dataset is stored in `/user/$USER/ml-100k/`.
+
+3. **Data Processing**: All processing components like Spark, Pig, Hive, and MapReduce accessed the data stored in HDFS, leveraging its distributed nature for efficient data processing.
+
+### Importance of HDFS
+HDFS plays a crucial role in the Hadoop ecosystem. Here are some reasons why HDFS is important:
+
+- **Reliability**: Data is replicated across multiple nodes to ensure no data loss in case of node failures.
+- **Scalability**: HDFS can handle scaling up and down seamlessly, making it suitable for large data sets and big data applications.
+- **Performance**: HDFS is designed to handle large data sets efficiently, providing high throughput and fast data access.
+
+### Example Commands
+Here are some useful HDFS commands that we frequently used in our project:
+
+- **Uploading a File**:
+  ```sh
+  hdfs dfs -put /local/path/to/file /hdfs/path/to/directory
+  ```
+
+- **Listing Files**:
+  ```sh
+  hdfs dfs -ls /hdfs/path/to/directory
+  ```
+
+- **Reading a File**:
+  ```sh
+  hdfs dfs -cat /hdfs/path/to/file
+  ```
+
+- **Removing a File**:
+  ```sh
+  hdfs dfs -rm /hdfs/path/to/file
+  ```

@@ -1,0 +1,81 @@
+The "--hive-import" option in the Sqoop import command is used to directly load data into a Hive table after importing it from a relational database. When this option is specified, Sqoop first imports the data into HDFS, then it creates and populates a Hive table with the imported data. This feature is particularly useful when you want to make the data available for SQL-like querying in Hive immediately after import.
+
+During the process:
+
+1. Data Import to HDFS: The data is first transferred from the source database to HDFS.
+2. Hive Table Creation: If the target Hive table does not already exist, Sqoop will create it based on the schema inferred from the source table. The table can either be created as an internal or external Hive table.
+3. Data Loading into Hive: The data is then loaded into the newly created Hive table.
+This approach simplifies the process of integrating data from relational databases into the Hadoop ecosystem, enabling users to leverage Hive's querying capabilities for analysis and reporting.
+
+-- 1. IMPORTING GENRES TABLE DATA (HIVE)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table genres \
+-m 1 \
+--username root \
+--password hadoop \
+--hive-import
+
+
+-- 2. IMPORTING GENRES_MOVIES TABLE DATA (HIVE)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table genre_movies \
+-m 1 \
+--username root \
+--password hadoop \
+--hive-import
+
+
+-- 3. IMPORTING MOVIES TABLE DATA (HIVE)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table movies \
+-m 1 \
+--username root \
+--password hadoop \
+--hive-import
+
+
+-- 4. IMPORTING OCCUPATIONS TABLE DATA (HIVE)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table occupations \
+-m 1 \
+--username root \
+--password hadoop \
+--hive-import
+ 
+
+-- 5. IMPORTING RATINGS TABLE DATA (HIVE)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table ratings \
+-m 1 \
+--username root \
+--password hadoop \
+--hive-import
+
+-- 6. IMPORTING USERS TABLE DATA (HIVE)
+
+sqoop import \
+--connect jdbc:mysql://localhost/movielens \
+--driver com.mysql.jdbc.Driver \
+--table users \
+-m 1 \
+--username root \
+--password hadoop \
+--hive-import
+ 
+
+
